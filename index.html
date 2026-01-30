@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Abhi Singh | Smart Animated Tools</title>
+<title>Abhi Singh | Smart Tools</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
---bg1:#020617;
---bg2:#0f172a;
---glass:rgba(255,255,255,0.08);
---accent:#ff0000;
+--bg:#020617;
+--card:#0f172a;
+--accent:#38bdf8;
 --accent2:#a855f7;
---accent3:#22d3ee;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:Segoe UI,Arial;
-background:linear-gradient(120deg,var(--bg1),var(--bg2));
+background:linear-gradient(135deg,var(--bg),#020617);
 color:white;
 overflow-x:hidden;
 }
@@ -36,9 +34,8 @@ padding:20px;
 }
 
 .hero h1{
-font-size:70px;
-letter-spacing:6px;
-background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));
+font-size:64px;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 animation:glow 3s infinite alternate;
@@ -49,19 +46,51 @@ from{filter:drop-shadow(0 0 5px var(--accent))}
 to{filter:drop-shadow(0 0 25px var(--accent2))}
 }
 
-.hero p{
-margin-top:15px;
-opacity:.9;
+.hero p{opacity:.8;margin-top:12px}
+
+/* MENU */
+.menu-btn{
+position:fixed;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+width:56px;height:56px;
+border-radius:50%;
+background:var(--accent);
+color:black;
+font-size:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+z-index:1000;
+box-shadow:0 0 20px var(--accent);
 }
 
-/* SUBSCRIBE */
-.subscribe-box{
-margin-top:30px;
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:15px;
-animation:fadeUp 1.5s ease;
+/* PANEL */
+.panel{
+position:fixed;
+top:0;right:-360px;
+width:340px;height:100%;
+background:var(--card);
+padding:20px;
+transition:.6s cubic-bezier(.4,0,.2,1);
+overflow-y:auto;
+}
+.panel.active{right:0}
+
+h2{
+color:var(--accent);
+margin:25px 0 10px;
+}
+
+/* CARD */
+.card{
+background:#020617;
+padding:15px;
+border-radius:14px;
+margin-bottom:20px;
+animation:fadeUp .6s ease;
 }
 
 @keyframes fadeUp{
@@ -69,161 +98,183 @@ from{opacity:0;transform:translateY(20px)}
 to{opacity:1;transform:translateY(0)}
 }
 
-/* FLOATING MENU */
-.menu-btn{
-position:fixed;
-right:25px;
-top:50%;
-transform:translateY(-50%);
-width:55px;
-height:55px;
+/* INPUTS */
+input,select,button{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-top:8px;
+font-size:16px;
+}
+
+button{
+background:var(--accent);
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+button:hover{transform:scale(1.05)}
+
+/* CALCULATOR */
+.calc-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+}
+.calc-grid button{
+padding:15px;
+font-size:18px;
+}
+
+/* COMPASS */
+.compass{
+width:170px;height:170px;
+border:4px solid var(--accent);
 border-radius:50%;
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white;
-font-size:28px;
+margin:15px auto;
+position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
-cursor:pointer;
-z-index:1000;
+font-size:20px;
+}
+.arrow{
+width:4px;height:65px;
+background:red;
+position:absolute;
+top:20px;
+transform-origin:bottom center;
+border-radius:5px;
 }
 
-/* PANEL */
-.panel{
-position:fixed;
-top:0;
-right:-380px;
-width:360px;
-height:100%;
-background:var(--glass);
-backdrop-filter:blur(18px);
-padding:20px;
-transition:.6s cubic-bezier(.68,-0.6,.32,1.6);
-overflow-y:auto;
-z-index:999;
-}
-
-.panel.active{right:0}
-
-/* CARDS */
-.card{
-background:rgba(2,6,23,.85);
-border-radius:16px;
-padding:15px;
-margin-bottom:20px;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-6px) scale(1.02);
-box-shadow:0 15px 40px rgba(255,0,0,.25);
-}
-
-/* VIDEO SECTIONS */
-.section{
-padding:70px 20px;
-text-align:center;
-}
-
-.section h2{
-font-size:38px;
-margin-bottom:25px;
-color:var(--accent3);
-}
-
-/* VIDEO GRID */
-.video-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-max-width:1100px;
-margin:auto;
-}
-
+/* YOUTUBE */
 iframe{
 width:100%;
-aspect-ratio:16/9;
-border-radius:18px;
-box-shadow:0 20px 60px rgba(255,0,0,.35);
-transition:.4s;
-}
-
-iframe:hover{
-transform:scale(1.05);
-}
-
-/* FOOTER */
-footer{
-padding:25px;
-text-align:center;
-opacity:.6;
+border-radius:12px;
+margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
 <h1>ABHI SINGH</h1>
-<p>Tech • Knowledge • Entertainment • Smart Tools</p>
-
-<div class="subscribe-box">
-<!-- Subscribe Button -->
-<iframe 
-src="https://www.youtube.com/subscribe_embed?usegapi=1&channelid=UCgZJQm7e1gD3Y2b_AbhiSinghSeries" 
-style="border:none;height:50px;width:220px;">
-</iframe>
-
-<!-- Subscriber Counter -->
-<iframe 
-src="https://socialcounts.org/youtube-live-subscriber-count/abhisinghseries/embed" 
-style="border:none;width:260px;height:90px;">
-</iframe>
-</div>
+<p>Smart Tools • Live Utilities • Powerful & Simple</p>
 </div>
 
-<!-- MENU -->
 <div class="menu-btn" onclick="panel.classList.toggle('active')">⋮</div>
 
-<!-- SIDE PANEL -->
 <div class="panel" id="panel">
 
-<h2>💱 Currency Converter</h2>
+<!-- Currency -->
+<h2>💱 Live Currency Converter</h2>
 <div class="card">
-<input id="amount" placeholder="Amount">
-<select id="from"><option>USD</option><option>INR</option><option>EUR</option></select>
-<select id="to"><option>INR</option><option>USD</option><option>EUR</option></select>
-<button onclick="convert()">Convert</button>
-<p id="result"></p>
+<input type="number" id="amt" placeholder="Amount">
+<select id="from">
+<option>USD</option><option>INR</option><option>EUR</option>
+<option>GBP</option><option>JPY</option>
+</select>
+<select id="to">
+<option>INR</option><option>USD</option><option>EUR</option>
+<option>GBP</option><option>JPY</option>
+</select>
+<button onclick="convert()">Convert (Live)</button>
+<p id="curResult"></p>
 </div>
 
+<!-- Calculator -->
 <h2>🧮 Calculator</h2>
 <div class="card">
 <input id="calc" readonly>
-<button onclick="calc.value=''">Clear</button>
+<div class="calc-grid">
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('/')">÷</button>
+
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button onclick="add('*')">×</button>
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('-')">−</button>
+
+<button onclick="add('0')">0</button>
+<button onclick="add('.')">.</button>
+<button onclick="calc.value=eval(calc.value)">=</button>
+<button onclick="add('+')">+</button>
+
+<button onclick="calc.value=''">C</button>
+<button onclick="add('%')">%</button>
+</div>
+</div>
+
+<!-- Compass -->
+<h2>🧭 Compass</h2>
+<div class="card">
+<button onclick="startCompass()">Enable Compass</button>
+<div class="compass">
+<div class="arrow" id="arrow"></div>
+N
+</div>
+<p id="dir">Waiting for permission…</p>
+</div>
+
+<!-- YouTube -->
+<h2>📺 YouTube</h2>
+<div class="card">
+<a href="https://youtube.com/@abhisinghseries" target="_blank">
+<button>Visit Channel</button>
+</a>
+<iframe height="200"
+src="https://www.youtube.com/embed/jG5560GHa0Y"
+allowfullscreen></iframe>
 </div>
 
 </div>
-
-<!-- LATEST VIDEOS -->
-<div class="section">
-<h2>🔥 Latest YouTube Videos</h2>
-<div class="video-grid">
-<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=abhisinghseries"></iframe>
-<iframe src="https://www.youtube.com/embed/jG5560GHa0Y"></iframe>
-</div>
-</div>
-
-<footer>
-© 2026 Abhi Singh • Built for Growth 🚀
-</footer>
 
 <script>
+/* ===== LIVE CURRENCY ===== */
+const API_KEY = "PASTE_YOUR_API_KEY_HERE";
+
 async function convert(){
-let r=await fetch(`https://api.exchangerate.host/convert?from=${from.value}&to=${to.value}&amount=${amount.value}`);
-let d=await r.json();
-result.innerText="Result: "+d.result;
+const amount=amt.value;
+if(!amount){alert("Enter amount");return;}
+const from=document.getElementById("from").value;
+const to=document.getElementById("to").value;
+
+try{
+const res=await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${from}`);
+const data=await res.json();
+const rate=data.conversion_rates[to];
+curResult.innerText=`Live Result: ${(amount*rate).toFixed(2)} ${to}`;
+}catch{
+curResult.innerText="Error fetching live rates";
+}
+}
+
+/* ===== CALCULATOR ===== */
+function add(v){calc.value+=v}
+
+/* ===== COMPASS ===== */
+function startCompass(){
+if(typeof DeviceOrientationEvent.requestPermission==='function'){
+DeviceOrientationEvent.requestPermission().then(p=>{
+if(p==='granted')window.addEventListener('deviceorientation',rotate);
+});
+}else{
+window.addEventListener('deviceorientationabsolute',rotate,true);
+}
+}
+function rotate(e){
+arrow.style.transform=`rotate(${e.alpha}deg)`;
+dir.innerText="Direction: "+Math.round(e.alpha)+"°";
 }
 </script>
 
