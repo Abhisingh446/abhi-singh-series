@@ -1,138 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Abhi Singh Series - Official Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official website of Abhi Singh Series YouTube Channel">
+<meta charset="UTF-8">
+<title>Abhi Singh | Smart Animated Tools</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1220;
-      color: white;
-    }
+<style>
+:root{
+--bg1:#020617;
+--bg2:#0f172a;
+--glass:rgba(255,255,255,0.08);
+--accent:#ff0000;
+--accent2:#a855f7;
+--accent3:#22d3ee;
+}
 
-    header {
-      background: linear-gradient(135deg, #020617, #020617);
-      padding: 40px 20px;
-      text-align: center;
-    }
+*{box-sizing:border-box;margin:0;padding:0}
 
-    header h1 {
-      color: #38bdf8;
-      font-size: 32px;
-      margin: 0;
-    }
+body{
+font-family:Segoe UI,Arial;
+background:linear-gradient(120deg,var(--bg1),var(--bg2));
+color:white;
+overflow-x:hidden;
+}
 
-    header p {
-      color: #cbd5f5;
-      margin-top: 10px;
-    }
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 30px;
-      background: #ff0000;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-    }
+.hero h1{
+font-size:70px;
+letter-spacing:6px;
+background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glow 3s infinite alternate;
+}
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
-      text-align: center;
-    }
+@keyframes glow{
+from{filter:drop-shadow(0 0 5px var(--accent))}
+to{filter:drop-shadow(0 0 25px var(--accent2))}
+}
 
-    .video {
-      background: #020617;
-      padding: 20px;
-      border-radius: 16px;
-      margin-bottom: 40px;
-    }
+.hero p{
+margin-top:15px;
+opacity:.9;
+}
 
-    iframe {
-      width: 100%;
-      height: 500px;
-      border-radius: 12px;
-      border: none;
-    }
+/* SUBSCRIBE */
+.subscribe-box{
+margin-top:30px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:15px;
+animation:fadeUp 1.5s ease;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
 
-    footer {
-      background: #020617;
-      padding: 20px;
-      text-align: center;
-      color: #94a3b8;
-    }
+/* FLOATING MENU */
+.menu-btn{
+position:fixed;
+right:25px;
+top:50%;
+transform:translateY(-50%);
+width:55px;
+height:55px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+color:white;
+font-size:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+z-index:1000;
+}
 
-    @media (max-width: 768px) {
-      iframe {
-        height: 250px;
-      }
-    }
-  </style>
+/* PANEL */
+.panel{
+position:fixed;
+top:0;
+right:-380px;
+width:360px;
+height:100%;
+background:var(--glass);
+backdrop-filter:blur(18px);
+padding:20px;
+transition:.6s cubic-bezier(.68,-0.6,.32,1.6);
+overflow-y:auto;
+z-index:999;
+}
+
+.panel.active{right:0}
+
+/* CARDS */
+.card{
+background:rgba(2,6,23,.85);
+border-radius:16px;
+padding:15px;
+margin-bottom:20px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-6px) scale(1.02);
+box-shadow:0 15px 40px rgba(255,0,0,.25);
+}
+
+/* VIDEO SECTIONS */
+.section{
+padding:70px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:38px;
+margin-bottom:25px;
+color:var(--accent3);
+}
+
+/* VIDEO GRID */
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+iframe{
+width:100%;
+aspect-ratio:16/9;
+border-radius:18px;
+box-shadow:0 20px 60px rgba(255,0,0,.35);
+transition:.4s;
+}
+
+iframe:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+padding:25px;
+text-align:center;
+opacity:.6;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>🎬 Abhi Singh Series</h1>
-  <p>Official YouTube Channel Website</p>
-  <a class="btn" href="https://www.youtube.com/@ABHISINGHSERIES?sub_confirmation=1" target="_blank">
-    🔔 Subscribe on YouTube
-  </a>
-</header>
+<!-- HERO -->
+<div class="hero">
+<h1>ABHI SINGH</h1>
+<p>Tech • Knowledge • Entertainment • Smart Tools</p>
 
-<!-- FEATURED VIDEO -->
-<section class="section">
-  <h2>🔥 Featured Video</h2>
-  <div class="video">
-    <iframe src="https://www.youtube.com/embed/EG3a_0mYyoU" allowfullscreen></iframe>
-  </div>
-</section>
+<div class="subscribe-box">
+<!-- Subscribe Button -->
+<iframe 
+src="https://www.youtube.com/subscribe_embed?usegapi=1&channelid=UCgZJQm7e1gD3Y2b_AbhiSinghSeries" 
+style="border:none;height:50px;width:220px;">
+</iframe>
 
-<!-- MORE VIDEOS -->
-<section class="section">
-  <h2>📺 More Videos</h2>
-  <div class="grid">
-    <iframe src="https://www.youtube.com/embed/EG3a_0mYyoU"></iframe>
-    <iframe src="https://www.youtube.com/embed/EG3a_0mYyoU"></iframe>
-    <iframe src="https://www.youtube.com/embed/EG3a_0mYyoU"></iframe>
-  </div>
-</section>
+<!-- Subscriber Counter -->
+<iframe 
+src="https://socialcounts.org/youtube-live-subscriber-count/abhisinghseries/embed" 
+style="border:none;width:260px;height:90px;">
+</iframe>
+</div>
+</div>
 
-<!-- ABOUT -->
-<section class="section">
-  <h2>ℹ️ About Channel</h2>
-  <p>
-    Welcome to <b>Abhi Singh Series</b> 🎬  
-    This channel brings you amazing videos, series, and creative content.
-    Subscribe to stay updated with all latest uploads.
-  </p>
-</section>
+<!-- MENU -->
+<div class="menu-btn" onclick="panel.classList.toggle('active')">⋮</div>
 
-<!-- CONTACT -->
-<section class="section">
-  <h2>📩 Contact</h2>
-  <p>
-    For collaborations and business inquiries: <br><br>
-    📧 Email: <b>your-email@gmail.com</b>
-  </p>
-</section>
+<!-- SIDE PANEL -->
+<div class="panel" id="panel">
+
+<h2>💱 Currency Converter</h2>
+<div class="card">
+<input id="amount" placeholder="Amount">
+<select id="from"><option>USD</option><option>INR</option><option>EUR</option></select>
+<select id="to"><option>INR</option><option>USD</option><option>EUR</option></select>
+<button onclick="convert()">Convert</button>
+<p id="result"></p>
+</div>
+
+<h2>🧮 Calculator</h2>
+<div class="card">
+<input id="calc" readonly>
+<button onclick="calc.value=''">Clear</button>
+</div>
+
+</div>
+
+<!-- LATEST VIDEOS -->
+<div class="section">
+<h2>🔥 Latest YouTube Videos</h2>
+<div class="video-grid">
+<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=abhisinghseries"></iframe>
+<iframe src="https://www.youtube.com/embed/jG5560GHa0Y"></iframe>
+</div>
+</div>
 
 <footer>
-  © 2026 Abhi Singh Series | Powered by GitHub Pages
+© 2026 Abhi Singh • Built for Growth 🚀
 </footer>
+
+<script>
+async function convert(){
+let r=await fetch(`https://api.exchangerate.host/convert?from=${from.value}&to=${to.value}&amount=${amount.value}`);
+let d=await r.json();
+result.innerText="Result: "+d.result;
+}
+</script>
 
 </body>
 </html>
